@@ -1,7 +1,7 @@
 <template>
   <div class="container" style="display: flex; flex-direction: column">
     <div class="table-container" v-show="tableActive">
-      <div class="header" style="display: flex; margin-bottom: 20px; margin-top: 1rem">
+      <div class="header" style="display: flex; margin-bottom: 2rem; margin-top: 1rem">
         <h2>List of Creators</h2>
 
         <div class="dropdown" style="margin-right: 1rem;">
@@ -122,6 +122,7 @@ export default {
     },
     closeCreate() {
       this.creatorEditActive = false;
+      this.createCreatorActive = false;
       this.tableActive = true;
       this.loadData();
     },
@@ -166,7 +167,6 @@ export default {
       const comp = this
       comp.$axios.get(appSettings.$api_url + '/api/Creator/list')
         .then((response) => {
-
           if (response.status === 200) {
             comp.creators = response.data.data.creators
             $(document).ready(() => {
@@ -222,7 +222,7 @@ export default {
 
 <style scoped>
 .header h2 {
-  margin-right: 35rem;
+  margin-right: 39.5rem;
   font-family: 'Century Gothic';
   font-weight: 700;
   color: #393953;

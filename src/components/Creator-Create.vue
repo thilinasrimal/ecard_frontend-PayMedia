@@ -283,6 +283,9 @@ export default {
                 this.creator_email = '';
                 this.creator_status = '';
 
+                this.permissions='';
+                this.permissionList='';
+
                 // Reset Vuex store properties
                 this.$store.commit('updateCreatorCompany', '');
                 this.$store.commit('updateCreatorEmpNo', '');
@@ -324,8 +327,8 @@ export default {
 
       }).then(response=>{
         //clear Permissions
-        this.permissions='';
-        this.permissionList='';
+        // this.permissions='';
+        // this.permissionList='';
 
       }).catch(error=>{
         console.log(error)

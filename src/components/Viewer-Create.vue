@@ -274,6 +274,9 @@ export default {
               this.viewer_email = ''
               this.viewer_status = ''
 
+              this.permissions='';
+              this.permissionList='';
+
               // reset Vuex store properties
               this.$store.commit('updateViewerCompany', '')
               this.$store.commit('updateViewerEmpNo', '')
@@ -315,8 +318,7 @@ export default {
       }).then(response=>{
 
         //clear Permissions
-        this.permissions='';
-        this.permissionList='';
+
 
       }).catch(error=>{
         console.log(error)

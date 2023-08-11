@@ -1,7 +1,7 @@
 <template>
   <div class="container" style="display: flex; flex-direction: column">
     <div class="table-container" v-show="tableActive">
-      <div class="header" style="display: flex; margin-bottom: 20px; margin-top: 1rem">
+      <div class="header" style="display: flex; margin-bottom: 2rem; margin-top: 1rem">
         <h2>List of Viewers</h2>
 
         <div class="dropdown" style="margin-right: 1rem;">
@@ -27,10 +27,11 @@
       </div>
 
       <div class="table-container" id="dataTable">
-        <table class="table table-striped"  id="viewerTable" style="align-content: center">
+        <table class="table table-hover table-striped"  id="viewerTable" style="align-content: center">
           <thead>
           <tr>
             <th scope="col" >Employee No.</th>
+            <th scope="col">Designation</th>
             <th scope="col" >Name</th>
             <th scope="col" >Username</th>
             <th scope="col" >Contact Number</th>
@@ -39,9 +40,10 @@
             <th scope="col" >Action</th>
           </tr>
           </thead>
-          <tbody style="font-size: small">
+          <tbody>
           <tr v-for="viewer in viewers">
             <td>{{ viewer.employee_no }}</td>
+            <td>{{ viewer.designation }}</td>
             <td>{{viewer.name}}</td>
             <td>{{ viewer.username }}</td>
             <td>{{ viewer.contact_no }}</td>
@@ -160,13 +162,10 @@ export default {
       this.loadData();
     },
 
-
     loadData(){
       const comp = this
-
       comp.$axios.get(appSettings.$api_url + '/api/Viewer/list')
         .then((response) => {
-          // console.log(response)
           if (response.status === 200) {
             comp.viewers = response.data.data.viewers
             $(document).ready(() => {
@@ -222,7 +221,7 @@ export default {
 
 <style scoped>
 .header h2 {
-  margin-right: 35rem;
+  margin-right: 39.5rem;
   font-family: 'Century Gothic';
   font-weight: 700;
   color: #393953;

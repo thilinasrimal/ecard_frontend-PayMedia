@@ -364,6 +364,9 @@ export default {
               this.company_password = ''
               this.status = ''
 
+              this.permissions='';
+              this.permissionList='';
+
               // reset Vuex store properties
               this.$store.commit('updateCompanyN', '')
               this.$store.commit('updateHeadquarters', '')
@@ -381,12 +384,12 @@ export default {
                   message: 'Some fields are empty!',
                   type: 'is-danger',
                 });
-                this.permissions='';
-                this.permissionList='';
+                // this.permissions='';
+                // this.permissionList='';
               })
           } else {
-            this.permissions='';
-            this.permissionList='';
+            // this.permissions='';
+            // this.permissionList='';
             this.$buefy.notification.open({
               message: 'Some fields are empty!',
               type: 'is-danger',
@@ -398,8 +401,8 @@ export default {
           message: 'Error fetching existing creators!',
           type: 'is-danger',
         });
-        this.permissions='';
-        this.permissionList='';
+        // this.permissions='';
+        // this.permissionList='';
       });
 
       this.$axios.post(appSettings.$api_url + '/api/Users/save', {
@@ -410,8 +413,8 @@ export default {
       }).then(response => {
 
 
-        this.permissions='';
-        this.permissionList='';
+        // this.permissions='';
+        // this.permissionList='';
         // console.log('create company:', response)
 
       }).catch(error => {

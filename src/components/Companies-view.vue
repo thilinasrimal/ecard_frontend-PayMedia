@@ -1,7 +1,7 @@
 <template>
-  <div class="container" style="display: flex; ">
+  <div class="container" style="display: flex;">
     <div class="table-container" v-show="tableActive">
-      <div class="header" style="display: flex; margin-bottom: 20px; margin-top: 1rem">
+      <div class="header" style="display: flex; margin-bottom: 2rem; margin-top: 1rem">
         <h2>List of Companies</h2>
 
         <div class="dropdown" style="margin-right: 1rem;">
@@ -49,7 +49,7 @@
             <th scope="col">Action</th>
           </tr>
           </thead>
-          <tbody style="font-size: small">
+          <tbody>
           <tr v-for="company in companies">
             <td>{{ company.company_name }}</td>
             <td>{{ company.headquarters }}</td>
@@ -137,7 +137,6 @@ export default {
       this.createCompanyActive = false;
       this.tableActive = true;
       this.loadData();
-      Fixed
     },
     edit(id) {
       axios.get(`${appSettings.$api_url}/api/Company/${id}`)
@@ -227,7 +226,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Proza+Libre');
 
 .header h2 {
-  margin-right: 35rem;
+  margin-right: 37rem;
   font-family: 'Century Gothic';
   font-weight: 700;
   color: #393953;
